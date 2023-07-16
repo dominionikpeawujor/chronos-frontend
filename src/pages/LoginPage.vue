@@ -9,22 +9,59 @@
 
   <q-page class="row items-center justify-evenly">
     <q-card flat class="my-card">
-      <q-form>
-        <p>Email</p>
-        <q-input filled v-model="email" />
-        <br />
-        <p>Password</p>
-        <q-input filled v-model="password" />
-        <br />
-        <q-btn
-          no-caps
-          flat
-          label="Login"
-          class="btn"
-          type="submit"
-          icon-right="login"
-        />
-      </q-form>
+      <q-tab-panels v-model="tab" animated>
+        <q-tab-panel name="login">
+          <q-form>
+            <p>Email</p>
+            <q-input dense filled v-model="email" />
+            <br />
+            <p>Password</p>
+            <q-input dense filled v-model="password" />
+            <br />
+            <q-btn
+              no-caps
+              outline
+              label="Login"
+              class="btn"
+              type="submit"
+              icon-right="login"
+            />
+          </q-form>
+        </q-tab-panel>
+
+        <q-tab-panel name="signup">
+          <q-form>
+            <p>First Name</p>
+            <q-input dense filled v-model="firstName" />
+            <br />
+            <p>Last Name</p>
+            <q-input dense filled v-model="lastName" />
+            <br />
+            <p>Email</p>
+            <q-input dense filled v-model="email" />
+            <br />
+            <p>Password</p>
+            <q-input dense filled v-model="password" />
+            <br />
+            <q-btn no-caps outline label="Sign Up" class="btn" type="submit" />
+          </q-form>
+        </q-tab-panel>
+      </q-tab-panels>
+      <br />
+      <br />
+      <br />
+      <q-tabs
+        v-model="tab"
+        dense
+        class="text-grey"
+        active-color="red"
+        indicator-color="red"
+        align="justify"
+        narrow-indicator
+      >
+        <q-tab name="login" label="Login" />
+        <q-tab name="signup" label="SignUp" />
+      </q-tabs>
     </q-card>
   </q-page>
 </template>
@@ -32,6 +69,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+const tab = ref('login');
+const firstName = ref();
+const lastName = ref();
 const email = ref();
 const password = ref();
 </script>
@@ -40,9 +80,10 @@ const password = ref();
 .my-card {
   padding: 10px;
   width: 100%;
-  max-width: 50vh;
+  max-width: 70vh;
   height: 30vh;
 }
+
 .header {
   background-color: firebrick;
 }
@@ -51,7 +92,9 @@ p {
   margin: 0;
   padding: 0;
 }
+
 .btn {
+  padding: 10px;
   width: 100%;
 }
 </style>
