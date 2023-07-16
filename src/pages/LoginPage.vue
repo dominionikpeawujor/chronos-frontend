@@ -25,6 +25,7 @@
               class="btn"
               type="submit"
               icon-right="login"
+              :to="{ name: 'HomePage' }"
             />
           </q-form>
         </q-tab-panel>
