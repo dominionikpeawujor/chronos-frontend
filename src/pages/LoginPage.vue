@@ -1,11 +1,5 @@
 <template>
-  <q-header elevated>
-    <q-toolbar class="header">
-      <q-toolbar-title>Dominion's E-commerce Site</q-toolbar-title>
-
-      <div></div>
-    </q-toolbar>
-  </q-header>
+  <NavBar></NavBar>
 
   <q-page class="row items-center justify-evenly">
     <q-card flat class="my-card">
@@ -30,7 +24,7 @@
           </q-form>
         </q-tab-panel>
 
-        <q-tab-panel name="signup">
+        <q-tab-panel name="signup" class="">
           <q-form>
             <p>First Name</p>
             <q-input dense filled v-model="firstName" />
@@ -44,13 +38,18 @@
             <p>Password</p>
             <q-input dense filled v-model="password" />
             <br />
-            <q-btn no-caps outline label="Sign Up" class="btn" type="submit" />
+            <q-btn
+              no-caps
+              outline
+              label="Sign Up"
+              :to="{ name: 'HomePage' }"
+              class="btn"
+              type="submit"
+            />
           </q-form>
         </q-tab-panel>
       </q-tab-panels>
-      <br />
-      <br />
-      <br />
+
       <q-tabs
         v-model="tab"
         dense
@@ -69,6 +68,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import NavBar from 'src/components/Nav-bar.vue';
+// import Navbar from 'src/components/Navbar.vue';
 
 const tab = ref('login');
 const firstName = ref();
