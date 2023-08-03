@@ -39,6 +39,7 @@
       </q-card-section>
 
       <q-card-section class="quantity-input">
+        <p>Quantity</p>
         <q-input
           class="q-input"
           :rules="[(val) => (val && val.length > 0) || 'Please type something']"
@@ -47,6 +48,7 @@
           type="number"
           prefix=""
           width="10px"
+          placeholder="Enter Quantity"
           
         ></q-input>
       </q-card-section>
@@ -112,4 +114,9 @@ const items = [
   display: flex;
   margin: 0 auto;
 }
+
+.quantity-input {
+  text-align: center;
+}
+
 </style>
