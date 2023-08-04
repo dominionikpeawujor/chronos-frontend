@@ -18,7 +18,7 @@ export const useCounterStore = defineStore('cart', {
         (cartItem) => cartItem.id === item.id
       );
 
-      if (existingCartItem) {
+      if (existingCartItem && item.quantity > 0) {
         // If the item is already in the cart, update its quantity
         existingCartItem.quantity = item.quantity;
       } else if (item.quantity > 0) {
@@ -26,10 +26,9 @@ export const useCounterStore = defineStore('cart', {
         this.cart.push({ ...item });
       } else {
         // If the item is not in the cart and has no quantity, show an alert
-        alert('You need to fill in a quantity');
+        alert('You need to fill in a valid quantity');
       }
 
-      console.log(this.cart);
     },
   },
 });
