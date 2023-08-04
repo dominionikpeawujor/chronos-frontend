@@ -2,6 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 import LoginPage from 'src/pages/LoginPage.vue';
 import HomePage from 'src/pages/HomePage.vue';
 import CartPage from 'src/pages/CartPage.vue';
+import ConfirmationPage from 'src/pages/ConfirmationPage.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -11,6 +12,7 @@ const routes: RouteRecordRaw[] = [
       { path: 'auth', name: 'LoginPage', component: LoginPage },
       { path: '', name: 'HomePage', component: HomePage },
       { path: 'cart', name: 'CartPage', component: CartPage },
+      { path: 'confirmation', name: 'ConfirmationPage', component: ConfirmationPage },
     ],
   },
 

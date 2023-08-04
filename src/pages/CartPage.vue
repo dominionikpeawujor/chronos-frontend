@@ -2,7 +2,7 @@
   <NavBar></NavBar>
   <div class="q-pa-xl">
     <q-table title="Cart" :rows="rows" row-key="name" />
-    <q-btn color="primary" class="q-mt-xl" label="Checkout" />
+    <q-btn color="primary" class="q-mt-xl" @click="$router.push('/confirmation')" label="Checkout" />
   </div>
 </template>
 
